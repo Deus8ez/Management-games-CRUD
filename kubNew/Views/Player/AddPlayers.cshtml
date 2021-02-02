@@ -1,0 +1,64 @@
+﻿@model kubNew.Models.Players
+
+@{
+    Layout = "_BasicLayout";
+}
+
+<body>
+    <div class="inner-grid-container">
+        <div class="inner-grid-item">
+            <h2>Добавить игрока</h2>
+            <form asp-action="AddPlayer" method="post">
+                <div asp-validation-summary="All"></div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th><label>Имя:</label></th>
+                            <th>
+                                <input data-val="true" data-val-required="Введите имя" id="Name" class="input-validation-error" asp-for="Name" />
+                            </th>
+                            <th>
+                                <p class="star">*</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th><label>Фамилия:</label></th>
+                            <th>
+                                <input data-val="true" data-val-required="Введите фамилию" id="Surname" class="input-validation-error" asp-for="Surname" />
+                            </th>
+                            <th>
+                                <p class="star">*</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th><label>Отчество:</label></th>
+                            <th><input id="Patronym" asp-for="Patronym" /></th>
+                        </tr>
+                        <tr>
+                            <th><label>Дата рождения:</label></th>
+                            <th>
+                                <input data-val="true" data-val-required="Введите дату рождения" id="DateOfBirth" class="input-validation-error" asp-for="DateOfBirth" />
+                            </th>
+                            <th>
+                                <p class="star">*</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th><label>Ранг в классической:</label></th>
+                            <th><input id="ClassicRank" asp-for="ClassicRank" /></th>
+                        </tr>
+                        <tr>
+                            <th><label>Ранг в блиц:</label></th>
+                            <th><input id="BlitzRank" asp-for="BlitzRank" /></th>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <button type="submit">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>

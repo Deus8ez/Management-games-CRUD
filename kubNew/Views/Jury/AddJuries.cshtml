@@ -1,0 +1,51 @@
+﻿@model kubNew.Models.Jury
+
+@{
+    Layout = "_BasicLayout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RsvpForm</title>
+</head>
+<body>
+    <div class="inner-grid-container">
+        <div class="inner-grid-item">
+            <h2>Добавить судью</h2>
+            <form asp-action="AddJury" method="post">
+                <div asp-validation-summary="All"></div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th><label>Имя:</label></th>
+                            <th>
+                                <input data-val="true" data-val-required="Введите имя" id="Name" class="input-validation-error" asp-for="Name" />
+                            </th>
+                            <th>
+                                <p class="star">*</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th><label>Фамилия:</label></th>
+                            <th>
+                                <input data-val="true" data-val-required="Введите фамилию" id="Surname" class="input-validation-error" asp-for="Surname" />
+                            </th>
+                            <th>
+                                <p class="star">*</p>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <button type="submit">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

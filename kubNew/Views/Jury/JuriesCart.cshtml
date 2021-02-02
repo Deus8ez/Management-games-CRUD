@@ -1,0 +1,33 @@
+﻿@model kubNew.Models.ViewModels.JuryCartViewModel
+
+<h2>Список всех судей</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.Cart.Lines)
+        {
+        <tr>
+            <td>@p.Jury.ID</td>
+            <td>@p.Jury.Name</td>
+            <td>@p.Jury.Surname</td>
+            <td>
+                <form asp-controller="Event" asp-action="RemoveFromCart" method="post">
+                    <input type="text" name="ID"
+                           value="@p.Jury.ID" />
+                    <input type="hidden" name="returnUrl"
+                           value="@Model.ReturnUrl" />
+                    <button type="submit">
+                        Remove
+                    </button>
+                </form>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

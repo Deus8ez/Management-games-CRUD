@@ -1,0 +1,21 @@
+﻿@model IEnumerable<string>
+
+@foreach (string p in Model)
+{
+    <a asp-action="Index"
+        asp-controller="Event"
+        asp-route-location="@p"
+        asp-route-page="1">
+        @p
+    </a>
+}
+
+@*@foreach (string ClassicRank in Model)
+{
+    <a asp-action="Index"
+        asp-controller="Player"
+        asp-route-rank="@ClassicRank"
+        asp-route-page="1">
+        @ClassicRank
+    </a>
+}*@

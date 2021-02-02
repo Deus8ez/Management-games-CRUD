@@ -1,0 +1,41 @@
+﻿@model kubNew.Models.ViewModels.PlayerCartViewModel
+
+<h2>Добавляемые игроки</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Patronym</th>
+            <th>DateOfBirth</th>
+            <th>ClassicRank</th>
+            <th>BlitzRank</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.Cart.Lines)
+        {
+            <tr>
+                <td>@p.Player.ID</td>
+                <td>@p.Player.Name</td>
+                <td>@p.Player.Surname</td>
+                <td>@p.Player.Patronym</td>
+                <td>@p.Player.DateOfBirth</td>
+                <td>@p.Player.ClassicRank</td>
+                <td>@p.Player.BlitzRank</td>
+                <td>
+                    <form asp-controller="Player" asp-action="RemoveFromCart" method="post">
+                        <input type="text" name="ID"
+                               value="@p.Player.ID" />
+                        <input type="hidden" name="returnUrl"
+                               value="@Model.ReturnUrl" />
+                        <button type="submit">
+                            Remove
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

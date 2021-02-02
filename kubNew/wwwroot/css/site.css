@@ -1,0 +1,95 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+body{
+    margin-left: 5em;
+}
+
+.top_left_logo {
+    margin-top: 1em;
+}
+
+.home_button {
+    width: 2em;
+    margin-bottom: 0.3em;
+    margin-left: 60em;
+}
+
+.main_links {
+    font-size: large;
+    display: inline-block
+}
+
+.link {
+    padding: 0.3em;
+}
+
+.main-grid-container {
+    text-align: left;
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    margin-left: 6em;
+    margin-top: 2em;
+}
+
+.grid-container {
+    text-align: left;
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    margin-left: 2em;
+    margin-top: 2em;
+}
+
+.grid-item {
+    padding: 0.3em;
+}
+
+.inner-grid-container {
+    text-align: left;
+    display: inline-grid;
+    grid-template-columns: auto auto;
+}
+
+.inner-grid-item {
+    padding: 0em;
+}
+
+.main-data {
+    margin-left: 1em;
+    padding-top: 0;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+.star {
+    display: inline-block;
+    color: red;
+    margin: 0 0.3em;
+}
+
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+form > div{
+    padding: 0.2em;
+}

@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>KUB</title>
+    <link rel="Stylesheet" runat="server" href="~/css/site.css" type="text/css"/>
+</head>
+<body class="test">
+    <img class="top_left_logo" src="~/imgs/logo.gif" />
+    <img onclick="" class="home_button" src="~/imgs/home.svg" />
+    <a asp-action="Index">HOME</a>
+    <div class="main-grid-container">
+        <div class="grid-item main_links">
+            <div class="link">
+                <a asp-controller="Event" asp-action="Index">Список всех турниров</a>
+            </div>
+            <div class="link">
+                <a asp-controller="Player" asp-action="Index">Список всех игроков</a>
+            </div>
+            <div class="link">
+                <a asp-controller="Jury" asp-action="Index">Список всех судей</a>
+            </div>
+            <div class="link">
+                <a asp-controller="Player" asp-action="AddPlayers">Зарегистрировать игроков</a>
+            </div>
+            <div class="link">
+                <a asp-controller="Jury" asp-action="AddJuries">Зарегистрировать судей</a>
+            </div>
+            <div class="link">
+                <a asp-controller="Event" asp-action="AddEvent">Добавить турнир</a>
+            </div>
+        </div>
+        <div class="grid-item main-data">
+            <div>
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+﻿@model kubNew.Models.Players
+
+@{
+    Layout = "_BasicLayout";
+}
+
+<h2>Игрок</h2>
+<form method="post">
+    <table>
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <th><input value="@Model.ID" asp-for="ID" /></th>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <th><input value="@Model.Name" asp-for="Name" /></th>
+            </tr>
+            <tr>
+                <th>Surname</th>
+                <th><input value="@Model.Surname" asp-for="Surname" /></th>
+            </tr>
+            <tr>
+                <th>Patronym</th>
+                <th><input value="@Model.Patronym" asp-for="Patronym" /></th>
+            </tr>
+            <tr>
+                <th>DateOfBirth</th>
+                <th><input value="@Model.DateOfBirth" asp-for="DateOfBirth" /></th>
+            </tr>
+            <tr>
+                <th>ClassicRank</th>
+                <th><input value="@Model.ClassicRank" asp-for="ClassicRank" /></th>
+            </tr>
+            <tr>
+                <th>BlitzRank</th>
+                <th><input value="@Model.BlitzRank" asp-for="BlitzRank" /></th>
+            </tr>
+            <tr>
+                <th>
+                    <input type="submit" value="Обновить данные" asp-action="UpdatePlayer" />
+                    <input type="submit" value="Удалить из базы" asp-action="DeletePlayer" />
+                </th>
+            </tr>
+        </tbody>
+    </table>
+</form>
+<form id="@Model.ID" asp-action="AddToCart" asp-controller="Player" method="post">
+    <input type="hidden" asp-for="ID" />
+    <input type="hidden" name="returnUrl"
+           value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+    <span>
+        <button type="submit">
+            Добавить в турнир
+        </button>
+    </span>
+</form>

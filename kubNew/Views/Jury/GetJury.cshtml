@@ -1,0 +1,41 @@
+﻿@model kubNew.Models.Jury
+
+@{
+    Layout = "_BasicLayout";
+}
+
+<h2>Игрок</h2>
+<form method="post">
+    <table>
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <th><input value="@Model.ID" asp-for="ID" /></th>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <th><input value="@Model.Name" asp-for="Name" /></th>
+            </tr>
+            <tr>
+                <th>Surname</th>
+                <th><input value="@Model.Surname" asp-for="Surname" /></th>
+            </tr>
+            <tr>
+                <th>
+                    <input type="submit" value="Обновить данные" asp-action="UpdateJury" />
+                    <input type="submit" value="Удалить из базы" asp-action="DeleteJury" />
+                </th>
+            </tr>
+        </tbody>
+    </table>
+</form>
+<form id="@Model.ID" asp-action="AddToJuryCart" asp-controller="Jury" method="post">
+    <input type="hidden" asp-for="ID" />
+    <input type="hidden" name="returnUrl"
+           value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+    <span>
+        <button type="submit">
+            Добавить в турнир
+        </button>
+    </span>
+</form>

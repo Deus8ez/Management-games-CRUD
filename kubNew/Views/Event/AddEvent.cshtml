@@ -1,0 +1,73 @@
+﻿@model Event
+
+<body>
+    <div class="inner-grid-container">
+        <div class="inner-grid-item">
+            <h2>Добавить турнир</h2>
+            <form asp-action="AddEvent" method="post">
+                <div asp-validation-summary="All"></div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th><label>Место:</label></th>
+                            <th>
+                                <input data-val="true" data-val-required="Введите место" id="Location" class="input-validation-error" asp-for="Location" />
+                            </th>
+                            <th>
+                                <p class="star">*</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th><label>Дата:</label></th>
+                            <th>
+                                <input data-val="true" data-val-required="Введите дату" id="DateHeld" class="input-validation-error" asp-for="DateHeld" />
+                            </th>
+                            <th>
+                                <p class="star">*</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th><label>Тип:</label></th>
+                            <th>
+                                <input data-val="true" data-val-required="Введите тип" id="Type" class="input-validation-error" asp-for="Type" />
+                            </th>
+                            <th>
+                                <p class="star">*</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th><label>Название:</label></th>
+                            <th><input id="Name" class="input-validation-error" asp-for="Name" /></th>
+                            <th>
+                                <p class="star">*</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th><label>Онлайн:</label></th>
+                            <th>
+                                <select asp-for="Online">
+                                    <option value="true">Online</option>
+                                    <option value="false">Offline</option>
+                                </select>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <button type="submit">
+                        Submit
+                    </button>
+                </div>
+            </form>
+
+            @await Component.InvokeAsync("JuriesSelection")
+
+            @await Component.InvokeAsync("PlayersSelection")
+
+            @await Component.InvokeAsync("JuryCart")
+
+            @await Component.InvokeAsync("PlayerCart")
+
+        </div>
+    </div>
+</body>

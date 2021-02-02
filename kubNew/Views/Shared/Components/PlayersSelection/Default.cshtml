@@ -1,0 +1,39 @@
+﻿@model PlayerListViewModel
+
+<h2>Игроки</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Patronym</th>
+            <th>DateOfBirth</th>
+            <th>ClassicRank</th>
+            <th>BlitzRank</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.Players)
+        {
+            <tr>
+                <td><input value="@p.ID" asp-for="@p.ID" /></td>
+                <td><input value="@p.Name" asp-for="@p.Name" /></td>
+                <td><input value="@p.Surname" asp-for="@p.Surname" /></td>
+                <td><input value="@p.Patronym" asp-for="@p.Patronym" /></td>
+                <td><input value="@p.DateOfBirth" asp-for="@p.DateOfBirth" /></td>
+                <td><input value="@p.ClassicRank" asp-for="@p.ClassicRank" /></td>
+                <td><input value="@p.BlitzRank" asp-for="@p.BlitzRank" /></td>
+                <td>
+                    <a asp-controller="Player" asp-action="GetPlayer" asp-route-id="@p.ID">Изменить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div page-model="@Model.PagingInfo" page-action="AddEvent"></div>
+
+
+
+
+

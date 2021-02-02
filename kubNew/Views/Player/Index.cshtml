@@ -1,0 +1,35 @@
+﻿@model kubNew.Models.ViewModels.PlayerListViewModel
+
+<h2>Список всех игроков</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Patronym</th>
+            <th>DateOfBirth</th>
+            <th>ClassicRank</th>
+            <th>BlitzRank</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.Players)
+        {
+        <tr>
+            <td>@p.ID"</td>
+            <td>@p.Name</td>
+            <td>@p.Surname</td>
+            <td>@p.Patronym</td>
+            <td>@p.DateOfBirth</td>
+            <td>@p.ClassicRank</td>
+            <td>@p.BlitzRank</td>
+            <td>
+                <a asp-controller="Player" asp-action="GetPlayer" asp-route-id="@p.ID">Изменить</a>
+            </td>         
+        </tr>
+        }
+        </tbody>
+</table>
+
+<div page-model="@Model.PagingInfo" page-action="Index"></div>

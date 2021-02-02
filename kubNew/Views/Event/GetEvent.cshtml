@@ -1,0 +1,99 @@
+﻿@model kubNew.Models.ViewModels.MasterListViewModel
+
+@{
+    Layout = "_BasicLayout";
+}
+
+<h2>Турнир</h2>
+<form method="post">
+    <table>
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <th><input value="@Model.Event.ID" asp-for="Event.ID" /></th>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <th><input value="@Model.Event.Location" asp-for="Event.Location" /></th>
+            </tr>
+            <tr>
+                <th>DateHeld</th>
+                <th><input value="@Model.Event.DateHeld" asp-for="Event.DateHeld" /></th>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <th><input value="@Model.Event.Type" asp-for="Event.Type" /></th>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <th><input value="@Model.Event.Name" asp-for="Event.Name" /></th>
+            </tr>
+            <tr>
+                <th>
+                    <input type="submit" value="Обновить данные" asp-action="UpdateEvent" />
+                    <input type="submit" value="Удалить из базы" asp-action="DeleteEvent" />
+                </th>
+            </tr>
+        </tbody>
+    </table>
+</form>
+
+@*<h2>Список всех судей</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.Juries)
+        {
+            <tr>
+                <td>@p.ID</td>
+                <td>@p.Name</td>
+                <td>@p.Surname</td>
+                <td>
+                    <a asp-controller="Jury" asp-action="GetJury" asp-route-id="@p.ID">Изменить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div page-model="@Model.PagingInfoJuries" page-action="Index"></div>
+
+<h2>Список всех игроков</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Patronym</th>
+            <th>DateOfBirth</th>
+            <th>ClassicRank</th>
+            <th>BlitzRank</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.Players)
+        {
+            <tr>
+                <td>@p.ID"</td>
+                <td>@p.Name</td>
+                <td>@p.Surname</td>
+                <td>@p.Patronym</td>
+                <td>@p.DateOfBirth</td>
+                <td>@p.ClassicRank</td>
+                <td>@p.BlitzRank</td>
+                <td>
+                    <a asp-controller="Player" asp-action="GetPlayer" asp-route-id="@p.ID">Изменить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div page-model="@Model.PagingInfoPlayers" page-action="Index"></div>*@

@@ -1,0 +1,27 @@
+﻿@model JuryListViewModel
+
+<h2>Cудьи</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.Juries)
+        {
+            <tr>
+                <td>@p.ID</td>
+                <td>@p.Name</td>
+                <td>@p.Surname</td>
+                <td>
+                    <a asp-controller="Jury" asp-action="GetJury" asp-route-id="@p.ID">Изменить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div page-model="@Model.PagingInfo" page-action="AddEvent"></div>

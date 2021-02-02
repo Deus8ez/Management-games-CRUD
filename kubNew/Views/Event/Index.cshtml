@@ -1,0 +1,34 @@
+﻿@model EventListViewModel
+
+<h2>Список всех турниров</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Location</th>
+            <th>DateHeld</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Online</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.Events)
+        {
+            <tr>
+                <td>@p.ID</td>
+                <td>@p.Location</td>
+                <td>@p.DateHeld</td>
+                <td>@p.Type</td>
+                <td>@p.Name</td>
+                <td>@p.Online</td>
+                <td>
+                    <a asp-controller="Event" asp-action="GetEvent" asp-route-id="@p.ID">Изменить</a>
+                </td>
+            </tr>
+        }
+        @await Component.InvokeAsync("NavigationMenu")
+    </tbody>
+</table>
+
+<div page-model="@Model.PagingInfo" page-action="Index"></div>
